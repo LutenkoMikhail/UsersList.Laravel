@@ -29,7 +29,7 @@
 - composer install .
 - npm install .
 - Переименовать файл .env.example в файл .env и настроить подключение к базе данных и пр.
-- - php artisan storage:link.
+- php artisan storage:link.
 - php artisan migrate --seed.
 
 ## Стартовая страница.
