@@ -21,6 +21,10 @@ class Photo extends Model
     ];
 
 
+    /**
+     * Relationships Polymorphic
+     * @return \Illuminate\Database\Eloquent\Relations\MorphTo
+     */
     public function photoable()
     {
         return $this->morphTo();
