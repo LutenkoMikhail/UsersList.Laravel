@@ -54,16 +54,12 @@ class User extends Authenticatable
         'blocked' => 'boolean',
     ];
 
-    protected $role;
-
     /**
-     * Construct
+     * The model Role
+     *
+     * @var array<string, string>
      */
-    public function __construct()
-    {
-        $this->role = new Role();
-    }
-
+    protected $role;
 
     /**
      * Relationships Role Model
@@ -89,6 +85,7 @@ class User extends Authenticatable
      */
     public function allUsersNotBlocked()
     {
+        $this->role = new Role();
         return $this->select('name', 'email')->whereBlocked(false)->where('role_id', '=', $this->role->userRoleId())->get();
     }
 
@@ -98,6 +95,7 @@ class User extends Authenticatable
      */
     public function allUsers()
     {
+        $this->role = new Role();
         return $this->where('role_id', '=', $this->role->userRoleId())->get();
     }
 }
