@@ -41,7 +41,7 @@ class UserSeeder extends Seeder
         $adminArray['email'] = $email;
         $adminArray['password'] = Hash::make($password);
         $adminArray['role_id'] = $roleId;
-        $adminArray['blocked'] = true;
+        $adminArray['blocked'] = false;
 
         User::factory()
             ->count(1)

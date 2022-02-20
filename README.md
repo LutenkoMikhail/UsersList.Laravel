@@ -34,6 +34,23 @@
 
 ## Стартовая страница.
 - public\index.php.
+## Список API routers с методами.
+- ALL USERS метод:GET, URL:http:{URL}/api/v1/users/all
+* Нет ошибок :
+* 1-Ответ 200
+* 2-Тело ответа на запрос
+  {
+  "users": [
+  {
+  "name": "Bobby Schiller",
+  "email": "trevor69@example.org"
+  },
+  {
+  "name": "Nona Russel",
+  "email": "lemuel27@example.org"
+  },
+  ]
+  }
 
 ## Использованы :
 - php 8

@@ -75,7 +75,6 @@ class RegisterController extends Controller
             Config::get('constants.photo.path_save_storage'),
             'public'
         );
-//        dd($pathPhoto);
         $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
