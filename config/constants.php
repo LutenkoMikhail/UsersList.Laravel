@@ -5,9 +5,18 @@ return [
             'admin' => 'Admin',
             'user' => 'User',
         ],
+        'paginate_users' => [
+            'paginate_users_3' => 3,
+            'paginate_users_10' => 10,
+            'paginate_users_25' => 25,
+        ],
     ],
     'photo' => [
-        'path_save' => 'public/storage/images/users',
-        'path_save_storage' => 'images/users',
+        'path_save' => 'public/storage/images/user',
+        'path_save_storage' => 'images/user',
+    ],
+    'blocked'=>[
+        'yes'=> 'Blocked',
+        'no'=>  'Active '
     ]
 ];

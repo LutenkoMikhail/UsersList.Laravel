@@ -14,4 +14,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/users/all', [\App\Http\Controllers\Api\v1\UserController::class, 'all'])->name('all.users');
+Route::get('/user/all', [\App\Http\Controllers\Api\v1\UserController::class, 'all'])->name('all.user');

@@ -35,7 +35,8 @@ class UserSeeder extends Seeder
         $email = $this->command->askWithCompletion('Enter email', ['admin@admin.com'
         ], 'admin@admin.com');
 
-        $password = $this->command->ask("Enter {$name}'s password", '123456789');
+        $password = $this->command->askWithCompletion("Enter {$name}'s password",  ['123456789'
+        ],'123456789');
 
         $adminArray['name'] = $name;
         $adminArray['email'] = $email;
@@ -48,7 +49,7 @@ class UserSeeder extends Seeder
             ->hasphoto(1)
             ->create($adminArray);
 
-        $this->command->info('The users are loaded into the database.');
+        $this->command->info('The user are loaded into the database.');
 
 
     }

@@ -80,7 +80,7 @@ class User extends Authenticatable
     }
 
     /**
-     * Return not blocked all users
+     * Return not blocked all user
      * @return Collection Users
      */
     public function allUsersNotBlocked()
@@ -90,12 +90,37 @@ class User extends Authenticatable
     }
 
     /**
-     * Return all users
+     * Return all user
      * @return Collection Users
      */
     public function allUsers()
     {
         $this->role = new Role();
         return $this->where('role_id', '=', $this->role->userRoleId())->get();
+    }
+
+    /**
+     * Return true for user admin
+     * @return bool
+     */
+    public function isAdmin()
+    {
+        $adminRole = Role::where('name', '=', Config::get('constants.db.roles.admin'))->first();
+
+        return $this->role_id === $adminRole->id;
+    }
+
+    /**
+     * User blocked or not
+     * @return mixed
+     */
+    public function userBlockedOrNot()
+    {
+        $blocked = Config::get('constants.blocked.yes');
+        if ($this->blocked === false) {
+            $blocked = Config::get('constants.blocked.no');
+        }
+
+        return $blocked;
     }
 }
