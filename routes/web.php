@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GoogleController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,15 +19,14 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Auth::routes();
 
+Route::get('/login/{social}', 'App\Http\Controllers\Auth\LoginController@socialLogin')
+    ->where('social', 'twitter|facebook|linkedin|google|github|bitbucket');
+Route::get('/login/{social}/callback', 'App\Http\Controllers\Auth\LoginController@handleProviderCallback')
+    ->where('social', 'twitter|facebook|linkedin|google|github|bitbucket');
 
-Route::middleware(['auth', 'admin'])->prefix('admin_panel')
-->group(function () {
+Route::middleware(['auth', 'admin'])->prefix('admin_panel')->group(function () {
     Route::get('/', [App\Http\Controllers\Admin\AdminController::class, 'index'])->name('homeAdmin');
     Route::post('/user/blocked/{user}/', [App\Http\Controllers\Admin\UserController::class, 'changeStatus'])->name('user.changeStatus');
     Route::resource('user', App\Http\Controllers\Admin\UserController::class);
+});
 
-    });
-
-
-Route::get('auth/google', [GoogleController::class, 'redirectToGoogle']);
-Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);

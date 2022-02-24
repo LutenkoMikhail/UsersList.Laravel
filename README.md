@@ -28,14 +28,14 @@
 ## Выполнить команду:
 - composer install .
 - npm install .
-- Переименовать файл .env.example в файл .env и настроить подключение к базе данных и пр.
+- Переименовать файл .env.example в файл .env и настроить подключение к базе данных ,доступа к социальным сетям и пр.
 - php artisan storage:link.
 - php artisan migrate --seed.
 
 ## Стартовая страница.
 - public\index.php.
 ## Список API routers с методами.
-- ALL USERS метод:GET, URL:http:{URL}/api/v1/users/all
+- ALL USERS метод:GET, URL:http:{URL}/api/v1/user/all
 * Нет ошибок :
 * 1-Ответ 200
 * 2-Тело ответа на запрос
@@ -53,8 +53,8 @@
   }
 
 ## Использованы :
-- php 8
+- Php 8
 - Laravel 9
 - Laravel/Socialite
 - MySQL 8
-- composer
+- Composer

@@ -21,13 +21,14 @@ class UserSeeder extends Seeder
         $adminArray = [];
         $roleId = Role::where('name', '=', Config::get('constants.db.roles.admin'))->first();
 
+        $this->command->info('Entering data for the administrator :');
 
         User::factory()
             ->count(9)
             ->hasphoto(1)
             ->create();
 
-        $this->command->info('Entering data for the administrator :');
+        $this->command->info('Creating Users.');
 
         $name = $this->command->askWithCompletion('Enter name', ['admin',
             'Admin'], 'admin');

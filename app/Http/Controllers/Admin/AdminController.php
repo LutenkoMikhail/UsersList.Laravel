@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
+    /**
+     * Admin panel
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
     public function index()
     {
         $countUsers = User::count();

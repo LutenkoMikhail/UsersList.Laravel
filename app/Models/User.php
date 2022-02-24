@@ -24,11 +24,12 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'google_id',
         'role_id',
         'blocked',
         'email_verified_at',
         'remember_token',
+        'provider',
+        'provider_id',
     ];
 
     /**

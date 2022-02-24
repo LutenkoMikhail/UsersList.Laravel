@@ -19,9 +19,11 @@ return new class extends Migration {
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
 
-            $table->string('google_id')->nullable();
             $table->unsignedBigInteger('role_id')->nullable();
             $table->boolean('blocked')->default(false);
+
+            $table->string('provider')->nullable();
+            $table->string('provider_id')->unique()->nullable();
 
             $table->rememberToken();
             $table->timestamps();
