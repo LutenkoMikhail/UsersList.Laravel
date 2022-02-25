@@ -40,7 +40,7 @@
 * 1-Ответ 200
 * 2-Тело ответа на запрос
   {
-  "users": [
+  "user": [
   {
   "name": "Bobby Schiller",
   "email": "trevor69@example.org"
