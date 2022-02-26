@@ -31,6 +31,8 @@
 - Переименовать файл .env.example в файл .env и настроить подключение к базе данных ,доступа к социальным сетям и пр.
 - php artisan storage:link.
 - php artisan migrate --seed.
+- php artisan test
+- php artisan dusk
 
 ## Стартовая страница.
 - public\index.php.
@@ -56,5 +58,7 @@
 - Php 8
 - Laravel 9
 - Laravel/Socialite
+- Laravel/Dusk
 - MySQL 8
 - Composer
+- Laravel/Dusk

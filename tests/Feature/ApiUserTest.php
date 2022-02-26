@@ -9,11 +9,8 @@ use Tests\TestCase;
 
 class ApiUserTest extends TestCase
 {
-    /**
-     * A basic feature test example.
-     *
-     * @return void
-     */
+
+    /** @test */
     public function test_assert_status()
     {
         $response = $this->json('GET', '/api/v1/user/all');
@@ -21,6 +18,7 @@ class ApiUserTest extends TestCase
         $response->assertStatus(200);
     }
 
+    /** @test */
     public function test_get_user_all()
     {
         $response = $this->json('GET', '/api/v1/user/all');
@@ -29,7 +27,7 @@ class ApiUserTest extends TestCase
 
     }
 
-
+    /** @test */
     public function test_post_user_all()
     {
         $response = $this->json('POST', '/api/v1/user/all');
@@ -38,6 +36,7 @@ class ApiUserTest extends TestCase
 
     }
 
+    /** @test */
     public function test_get_user_all_no_url()
     {
         $response = $this->json('GET', '/api/v1/users/all');
@@ -46,6 +45,7 @@ class ApiUserTest extends TestCase
 
     }
 
+    /** @test */
     public function test_get_user_all_name_email()
     {
         $response = $this->json('GET', '/api/v1/user/all');
@@ -59,6 +59,8 @@ class ApiUserTest extends TestCase
             ]
         ]);
     }
+
+    /** @test */
     public function test_get_user_all_guest()
     {
         $response = $this->json('GET', '/api/v1/user/all');
