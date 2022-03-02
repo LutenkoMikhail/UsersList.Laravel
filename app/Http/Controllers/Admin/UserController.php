@@ -169,20 +169,10 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        $this->deletePhotoUser($user->photo->photo_path);
+        $user->deletePhotoUser($user->photo->photo_path);
         $user->photo()->delete();
         $user->delete();
         return redirect()->route('user.index')->withSuccess('User ' . $user->name . ' deleted successfully !');
-    }
-
-    /**
-     * Delete file photo user
-     * @param string $photoPath
-     * @return void
-     */
-    protected function deletePhotoUser(string $photoPath)
-    {
-        Storage::disk('public')->delete($photoPath);
     }
 
     /**

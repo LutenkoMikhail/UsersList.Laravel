@@ -92,7 +92,7 @@ class LoginController extends Controller
             Auth::login($user);
             return redirect()->route('home');
         } else {
-            if ($user->userBlockedOrNot() === Config::get('constants.blocked.yes')) {
+            if ($user && $user->userBlockedOrNot() === Config::get('constants.blocked.yes')) {
                 Auth::logout();
                 return redirect('/')->withSuccess('Looks Like Your (' . $user->name . ') status is blocked');
             }

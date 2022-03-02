@@ -19,9 +19,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Auth::routes();
 
-Route::get('/login/{social}', 'App\Http\Controllers\Auth\LoginController@socialLogin')
+Route::get('/login/{social}', [App\Http\Controllers\Auth\LoginController::class,'socialLogin'])
     ->where('social', 'twitter|facebook|linkedin|google|github|bitbucket');
-Route::get('/login/{social}/callback', 'App\Http\Controllers\Auth\LoginController@handleProviderCallback')
+Route::get('/login/{social}/callback', [App\Http\Controllers\Auth\LoginController::class,'handleProviderCallback'])
     ->where('social', 'twitter|facebook|linkedin|google|github|bitbucket');
 
 Route::middleware(['auth', 'admin'])->prefix('admin_panel')->group(function () {

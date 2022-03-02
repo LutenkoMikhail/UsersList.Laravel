@@ -32,6 +32,7 @@
 - php artisan storage:link.
 - php artisan migrate --seed.
 - php artisan test
+- Создать файл для настроек DUSK .env.dusk.local
 - php artisan dusk
 
 ## Стартовая страница.

@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\Storage;
 use Laravel\Sanctum\HasApiTokens;
 use phpDocumentor\Reflection\Types\Collection;
 
@@ -123,5 +124,15 @@ class User extends Authenticatable
         }
 
         return $blocked;
+    }
+
+    /**
+     * Delete file photo user
+     * @param string $photoPath
+     * @return void
+     */
+    public function deletePhotoUser(string $photoPath)
+    {
+        Storage::disk('public')->delete($photoPath);
     }
 }

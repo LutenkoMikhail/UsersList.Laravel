@@ -10,37 +10,10 @@ class LoginTest extends DuskTestCase
 {
 
     /** @test */
-    public function test_title_page()
-    {
-        $this->browse(function (Browser $browser) {
-            $browser->visit('/');
-            $browser->assertTitle('Users List');
-        });
-    }
-
-    /** @test */
-    public function test_text_in_page()
-    {
-        $this->browse(function (Browser $browser) {
-            $browser->visit('/');
-            $browser->assertSee('Users count');
-        });
-    }
-
-    /** @test */
-    public function test_link_in_page()
-    {
-        $this->browse(function (Browser $browser) {
-            $browser->visit('/');
-            $browser->assertSeeLink("Log in");
-        });
-    }
-
-    /** @test */
     public function test_login_admin()
     {
         $this->browse(function ($browser) {
-            $browser->visit('/login')
+            $browser->visitRoute('login')
                 ->type('email', 'admin@admin.com')
                 ->type('password', '123456789')
                 ->press('Login')
@@ -53,7 +26,7 @@ class LoginTest extends DuskTestCase
     {
         $this->browse(function (Browser $browser) {
             $browser->loginAs(User::find(1))
-                ->visit('/home')
+                ->visitRoute('home')
                 ->assertSee('Dashboard')
                 ->logout();
         });
@@ -64,9 +37,10 @@ class LoginTest extends DuskTestCase
     {
         $this->browse(function (Browser $browser) {
             $browser->loginAs(User::where('email', 'admin@admin.com')->firstOrFail())
-                ->visit('/admin_panel')
+                ->visitRoute('homeAdmin')
                 ->assertSee('admin')
                 ->logout();
         });
     }
+
 }

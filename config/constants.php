@@ -14,6 +14,7 @@ return [
     'photo' => [
         'path_save' => 'public/storage/images/user',
         'path_save_storage' => 'images/user',
+        'path_testing_file' => 'app/public/testing/test.jpg',
     ],
     'blocked'=>[
         'yes'=> 'Blocked',
