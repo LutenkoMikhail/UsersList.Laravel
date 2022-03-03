@@ -30,8 +30,7 @@ class UserSeeder extends Seeder
 
         $this->command->info('Creating Users.');
 
-        $name = $this->command->askWithCompletion('Enter name', ['admin',
-            'Admin'], 'admin');
+        $name = $this->command->askWithCompletion('Enter name', ['admin'], 'admin');
 
         $email = $this->command->askWithCompletion('Enter email', ['admin@admin.com'
         ], 'admin@admin.com');

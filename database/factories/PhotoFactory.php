@@ -18,7 +18,8 @@ class PhotoFactory extends Factory
     public function definition()
     {
         return [
-            'photo_path' => $this->faker->image(Config::get('constants.photo.path_save'),400,300,'people',true),
+            'photo_path' => Config::get('constants.photo.path_save_storage') . DIRECTORY_SEPARATOR . basename($this->faker->image(Config::get('constants.photo.path_save'), 400, 300, 'people', true)),
+
         ];
     }
 }

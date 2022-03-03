@@ -54,7 +54,7 @@
             <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                 <div class="image">
                     <img src="{{ Storage::url(Auth::user()->photo->photo_path) }}"
-                         class="img-circle elevation-2" alt="User Image">
+                         class="img-thumbnail" alt="User Image">
                 </div>
                 <div class="info">
                     <a href="#" class="d-block">{{ Auth::user()->name }}</a>
