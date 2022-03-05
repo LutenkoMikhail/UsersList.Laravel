@@ -10,6 +10,7 @@ use Tests\DuskTestCase;
 
 class AdministratotNewUserTest extends DuskTestCase
 {
+
     /** @test */
     public function test_admin_new_user()
     {
@@ -18,10 +19,10 @@ class AdministratotNewUserTest extends DuskTestCase
                 ->visitRoute('homeAdmin')
                 ->visitRoute('user.create')
                 ->assertSee('New User')
-                ->type('name', 'register')
-                ->type('email', 'email@register')
-                ->type('password', '123456789')
-                ->type('password_confirmation', '123456789')
+                ->type('name', Config::get('constants.register.name'))
+                ->type('email', Config::get('constants.register.email'))
+                ->type('password', Config::get('constants.register.password'))
+                ->type('password_confirmation', Config::get('constants.register.password'))
                 ->attach('photo', storage_path(Config::get('constants.photo.path_testing_file')))
                 ->press('Add User')
                 ->assertSee('All Users.')
@@ -29,7 +30,7 @@ class AdministratotNewUserTest extends DuskTestCase
         });
 
         $user = new User();
-        $user=$user->where('name', '=', 'register')->first();
+        $user = $user->where('name', '=', Config::get('constants.register.name'))->first();
         $user->deletePhotoUser($user->photo->photo_path);
         $user->photo()->delete();
         $user->delete();

@@ -37,7 +37,7 @@
                                     Photo
                                 </th>
                                 <th>
-                                    name
+                                    Name
                                 </th>
                                 <th>
                                     Email

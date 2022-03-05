@@ -11,7 +11,6 @@ class RegisterTest extends DuskTestCase
 {
 
     /** @test */
-
     public function test_user_register_page()
     {
         $this->browse(function (Browser $browser) {
@@ -25,10 +24,10 @@ class RegisterTest extends DuskTestCase
     {
         $this->browse(function ($browser) {
             $browser->visitRoute('register')
-                ->type('name', 'register')
-                ->type('email', 'email@register')
-                ->type('password', '123456789')
-                ->type('password_confirmation', '123456789')
+                ->type('name', Config::get('constants.register.name'))
+                ->type('email', Config::get('constants.register.email'))
+                ->type('password', Config::get('constants.register.password'))
+                ->type('password_confirmation', Config::get('constants.register.password'))
                 ->attach('photo', storage_path(Config::get('constants.photo.path_testing_file')))
                 ->press('Register')
                 ->assertSee('Dashboard')
@@ -36,7 +35,7 @@ class RegisterTest extends DuskTestCase
         });
 
         $user = new User();
-        $user=$user->where('name', '=', 'register')->first();
+        $user = $user->where('name', '=', Config::get('constants.register.name'))->first();
         $user->deletePhotoUser($user->photo->photo_path);
         $user->photo()->delete();
         $user->delete();

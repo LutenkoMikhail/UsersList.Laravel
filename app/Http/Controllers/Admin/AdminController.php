@@ -13,10 +13,8 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $countUsers = User::count();
-
-        return view('admin.home.index',[
-            'countUsers'=>$countUsers,
+        return view('admin.home.index', [
+            'countUsers' => User::count(),
         ]);
     }
 

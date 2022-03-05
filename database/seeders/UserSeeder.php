@@ -30,13 +30,11 @@ class UserSeeder extends Seeder
 
         $this->command->info('Creating Users.');
 
-        $name = $this->command->askWithCompletion('Enter name', ['admin'], 'admin');
+        $name = $this->command->askWithCompletion('Enter name', [Config::get('constants.admin.name')], Config::get('constants.admin.name'));
 
-        $email = $this->command->askWithCompletion('Enter email', ['admin@admin.com'
-        ], 'admin@admin.com');
+        $email = $this->command->askWithCompletion('Enter email', [Config::get('constants.admin.email')], Config::get('constants.admin.email'));
 
-        $password = $this->command->askWithCompletion("Enter {$name}'s password",  ['123456789'
-        ],'123456789');
+        $password = $this->command->askWithCompletion("Enter {$name}'s password", [Config::get('constants.admin.password')], Config::get('constants.admin.password'));
 
         $adminArray['name'] = $name;
         $adminArray['email'] = $email;
@@ -50,7 +48,5 @@ class UserSeeder extends Seeder
             ->create($adminArray);
 
         $this->command->info('The user are loaded into the database.');
-
-
     }
 }

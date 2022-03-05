@@ -146,7 +146,7 @@ class UserController extends Controller
         $user->password = Hash::make($request->password);
         $user->role_id = $roleId->id;
 
-        $this->deletePhotoUser($user->photo->photo_path);
+        $user->deletePhotoUser($user->photo->photo_path);
         $user->photo()->delete();
 
         $user->photo()->create([

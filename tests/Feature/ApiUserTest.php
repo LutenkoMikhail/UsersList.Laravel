@@ -13,7 +13,7 @@ class ApiUserTest extends TestCase
     /** @test */
     public function test_assert_status()
     {
-        $response = $this->json('GET', '/api/v1/user/all');
+        $response = $this->json('GET', route('api.all.users'));
 
         $response->assertStatus(200);
     }
@@ -21,7 +21,7 @@ class ApiUserTest extends TestCase
     /** @test */
     public function test_get_user_all()
     {
-        $response = $this->json('GET', '/api/v1/user/all');
+        $response = $this->json('GET', route('api.all.users'));
 
         $response->assertJson(fn(AssertableJson $json) => $json->has('user'));
 
@@ -30,7 +30,7 @@ class ApiUserTest extends TestCase
     /** @test */
     public function test_post_user_all()
     {
-        $response = $this->json('POST', '/api/v1/user/all');
+        $response = $this->json('POST', route('api.all.users'));
 
         $response->assertJsonMissing(['user']);
 
@@ -39,7 +39,7 @@ class ApiUserTest extends TestCase
     /** @test */
     public function test_get_user_all_no_url()
     {
-        $response = $this->json('GET', '/api/v1/users/all');
+        $response = $this->json('GET', route('api.all.users') . 's');
 
         $response->assertNotFound();
 
@@ -48,7 +48,7 @@ class ApiUserTest extends TestCase
     /** @test */
     public function test_get_user_all_name_email()
     {
-        $response = $this->json('GET', '/api/v1/user/all');
+        $response = $this->json('GET', route('api.all.users'));
 
         $response->assertJsonStructure([
             'user' => [
@@ -63,7 +63,7 @@ class ApiUserTest extends TestCase
     /** @test */
     public function test_get_user_all_guest()
     {
-        $response = $this->json('GET', '/api/v1/user/all');
+        $response = $this->json('GET', route('api.all.users'));
 
         $this->assertGuest();
     }

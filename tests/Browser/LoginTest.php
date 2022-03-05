@@ -3,6 +3,7 @@
 namespace Tests\Browser;
 
 use App\Models\User;
+use Illuminate\Support\Facades\Config;
 use Laravel\Dusk\Browser;
 use Tests\DuskTestCase;
 
@@ -14,8 +15,8 @@ class LoginTest extends DuskTestCase
     {
         $this->browse(function ($browser) {
             $browser->visitRoute('login')
-                ->type('email', 'admin@admin.com')
-                ->type('password', '123456789')
+                ->type('email', Config::get('constants.admin.email'))
+                ->type('password', Config::get('constants.admin.password'))
                 ->press('Login')
                 ->assertPathIs('/admin_panel');
         });
@@ -36,7 +37,7 @@ class LoginTest extends DuskTestCase
     public function test_authentication_admin()
     {
         $this->browse(function (Browser $browser) {
-            $browser->loginAs(User::where('email', 'admin@admin.com')->firstOrFail())
+            $browser->loginAs(User::where('email', Config::get('constants.admin.email'))->firstOrFail())
                 ->visitRoute('homeAdmin')
                 ->assertSee('admin')
                 ->logout();
