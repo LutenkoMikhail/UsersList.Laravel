@@ -48,6 +48,7 @@
             <span class="brand-text font-weight-light">@yield('title')</span>
         </a>
 
+
         <!-- Sidebar -->
         <div class="sidebar">
             <!-- Sidebar user panel (optional) -->
@@ -109,14 +110,21 @@
                             </p>
                         </a>
                     </li>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                            @csrf
-                        </form>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
 
                     </li>
                 </ul>
             </nav>
             <!-- /.sidebar-menu -->
+
+
+            <!-- Navbar -->
+            <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+                <!-- Left navbar links -->
+            </nav>
+
         </div>
         <!-- /.sidebar -->
     </aside>
@@ -172,10 +180,10 @@
 <!-- AdminLTE for demo purposes -->
 <script src="/admin/dist/js/demo.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="/admin/dist/js/pages/dashboard.js"></script>
+{{--<script src="/admin/dist/js/pages/dashboard.js"></script>--}}
 <script type="text/javascript" src="/admin/dist/js/jquery.colorbox-min.js"></script>
-<script src="https://cdn.tiny.cloud/1/fwsxg52nply9cw0tgrw7zhseiv91m2cu3921l86sdwjydhrj/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-<script type="text/javascript" src="/packages/barryvdh/elfinder/js/standalonepopup.js"></script>
+<script src="https://cdn.tiny.cloud/1/fwsxg52nply9cw0tgrw7zhseiv91m2cu3921l86sdwjydhrj/tinymce/5/tinymce.min.js"
+        referrerpolicy="origin"></script>
 <script src="/admin/admin.js"></script>
 </body>
 

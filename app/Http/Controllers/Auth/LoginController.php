@@ -94,7 +94,7 @@ class LoginController extends Controller
         } else {
             if ($user && $user->userBlockedOrNot() === Config::get('constants.blocked.yes')) {
                 Auth::logout();
-                return redirect('/')->withSuccess('Looks Like Your (' . $user->name . ') status is blocked');
+                return redirect('/')->withSuccess('Looks Like Your (' . $user->name . ') status is blocked.');
             }
             return view('auth.register', ['name' => $userSocial->getName(), 'email' => $userSocial->getEmail()]);
         }
